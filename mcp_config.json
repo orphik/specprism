@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "specprism": {
+      "url": "https://spec-prism.app/mcp",
+      "serverUrl": "https://spec-prism.app/mcp"
+    }
+  }
+}

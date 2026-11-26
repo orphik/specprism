@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SpecPrism DialectProfile",
+  "type": "object",
+  "required": [
+    "id",
+    "displayName",
+    "version",
+    "lastVerifiedAt",
+    "modelMatchers",
+    "structuralFormat",
+    "reasoningStrategy",
+    "rules",
+    "coachAnnotations"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "displayName": { "type": "string" },
+    "version": { "type": "string" },
+    "lastVerifiedAt": { "type": "string", "format": "date-time" },
+    "modelMatchers": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "structuralFormat": {
+      "type": "string",
+      "enum": ["xml_tags", "markdown_headings", "hybrid_json_fence"]
+    },
+    "reasoningStrategy": {
+      "type": "string",
+      "enum": [
+        "native_reasoning_no_manual_cot",
+        "guided_stepwise_plan",
+        "compact_direct_execution"
+      ]
+    },
+    "rules": {
+      "type": "object",
+      "required": ["systemFramingTemplate", "handoffSectionOrder", "toolUseGuidance"],
+      "properties": {
+        "avoidPhrases": { "type": "array", "items": { "type": "string" } },
+        "systemFramingTemplate": { "type": "string" },
+        "handoffSectionOrder": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "toolUseGuidance": { "type": "string" }
+      }
+    },
+    "coachAnnotations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ruleKey", "badgeLabel", "explanation"],
+        "properties": {
+          "ruleKey": { "type": "string" },
+          "badgeLabel": { "type": "string" },
+          "explanation": { "type": "string" }
+        }
+      }
+    }
+  }
+}

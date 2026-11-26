@@ -1,0 +1,25 @@
+id: qwen-coder
+displayName: Qwen Coder Family (File-Scoped Blocks + Deterministic Tooling)
+version: "2026.11.1"
+lastVerifiedAt: "2026-11-26T00:00:00.000Z"
+modelMatchers:
+  - "qwen/*"
+  - "qwen-*"
+structuralFormat: markdown_headings
+reasoningStrategy: guided_stepwise_plan
+rules:
+  avoidPhrases: []
+  systemFramingTemplate: |
+    Repository Implementation Plan: Execute one vertical story slice at a time, aligning exact targetFilePath test files with each REQ-* EARS criterion.
+  handoffSectionOrder:
+    - "## Scoped Vision & Non-Goals"
+    - "## Locked Assumptions"
+    - "## Vertical Stories"
+    - "## Acceptance Criteria (EARS)"
+    - "## Verification Matrix (REQ -> TC)"
+  toolUseGuidance: |
+    Group edits by explicit repository file paths and run Vitest/Playwright immediately after completing each slice.
+coachAnnotations:
+  - ruleKey: file_path_grounding
+    badgeLabel: Explicit File-Path Anchoring
+    explanation: Qwen Coder models excel when target repository paths and verification commands are foregrounded alongside each story slice.

@@ -1,0 +1,29 @@
+{
+  "name": "specprism",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "SpecPrism CLI — AI Product & QA Co-Architect (Local Workbench, Triage & MCP 2026-07-28)",
+  "type": "module",
+  "bin": {
+    "specprism": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@specprism/core": "workspace:*",
+    "@specprism/db": "workspace:*",
+    "@specprism/mcp-server": "workspace:*",
+    "@specprism/registry-sync": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.4"
+  }
+}

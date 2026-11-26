@@ -1,0 +1,16 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2026-07-28/server.schema.json",
+  "name": "app.spec-prism/specprism",
+  "description": "Stateless Socratic spec co-architect, EARS acceptance criteria generator, and REQ-to-TC test blueprint engine.",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/orphik/specprism",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://spec-prism.app/mcp"
+    }
+  ]
+}

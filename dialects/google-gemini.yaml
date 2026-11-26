@@ -1,0 +1,28 @@
+id: google-gemini
+displayName: Google Gemini Family (Context-First + Constraint-Last Grounding)
+version: "2026.11.1"
+lastVerifiedAt: "2026-11-26T00:00:00.000Z"
+modelMatchers:
+  - "google/gemini-*"
+  - "google/gemma-*"
+  - "gemini-*"
+structuralFormat: xml_tags
+reasoningStrategy: native_reasoning_no_manual_cot
+rules:
+  avoidPhrases:
+    - "think step by step"
+  systemFramingTemplate: |
+    Ground your implementation strictly in the specification artifacts below, placing highest priority on the final execution checklist.
+  handoffSectionOrder:
+    - "<scoped_vision>"
+    - "<locked_assumptions>"
+    - "<vertical_story>"
+    - "<acceptance_criteria_ears>"
+    - "<traceable_test_plan>"
+    - "<recommended_mcp_tools>"
+  toolUseGuidance: |
+    Issue parallel read/search calls upfront and verify all TC-* assertions in one consolidated test run.
+coachAnnotations:
+  - ruleKey: context_first_directive_last
+    badgeLabel: Context-First Ordering
+    explanation: Places full reference context before the final TDD execution directive to maximize Gemini long-context recall.
