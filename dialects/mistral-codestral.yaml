@@ -1,0 +1,28 @@
+id: mistral-codestral
+displayName: Mistral & Codestral Family (Code-First Diffs + Explicit File Targets)
+version: "2026.11.2"
+lastVerifiedAt: "2026-11-26T20:00:00.000Z"
+modelMatchers:
+  - "mistralai/*"
+  - "mistral-*"
+  - "codestral-*"
+  - "devstral-*"
+structuralFormat: markdown_headings
+reasoningStrategy: guided_stepwise_plan
+rules:
+  avoidPhrases:
+    - "take your time"
+  systemFramingTemplate: |
+    Code-First Execution Plan: Implement each vertical user story in slice order, mapping every EARS SHALL clause directly to its targetFilePath test assertion.
+  handoffSectionOrder:
+    - "## Scoped Vision & Non-Goals"
+    - "## Locked Assumptions"
+    - "## Vertical Stories"
+    - "## Acceptance Criteria (EARS)"
+    - "## Verification Matrix (REQ -> TC)"
+  toolUseGuidance: |
+    Inspect target files before editing, apply minimal self-contained code changes per vertical slice, and execute the mapped unit/contract test file after each edit.
+coachAnnotations:
+  - ruleKey: code_first_file_boundaries
+    badgeLabel: Code-First File Boundaries
+    explanation: Codestral and Devstral coding models produce cleaner diffs when target file paths and concrete EARS assertions precede prose rationale.

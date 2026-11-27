@@ -1,0 +1,23 @@
+id: local-ollama-default
+displayName: Local / Compact Open-Weight Models (Concise Hybrid JSON + Checklist)
+version: "2026.11.1"
+lastVerifiedAt: "2026-11-26T00:00:00.000Z"
+modelMatchers:
+  - "ollama/*"
+  - "*"
+structuralFormat: hybrid_json_fence
+reasoningStrategy: compact_direct_execution
+rules:
+  avoidPhrases: []
+  systemFramingTemplate: |
+    Implement one vertical story at a time using the compact JSON contract and checklist below.
+  handoffSectionOrder:
+    - "### Vision & Guardrails"
+    - "### Compact REQ -> TC Contract"
+    - "### Red-Green Execution Steps"
+  toolUseGuidance: |
+    Implement files incrementally and run unit tests after each file change.
+coachAnnotations:
+  - ruleKey: compact_direct_execution
+    badgeLabel: Compact Token Budget
+    explanation: Compresses prose overhead into a dense JSON-fenced checklist so smaller local models keep attention on test IDs.

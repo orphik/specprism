@@ -1,0 +1,11 @@
+{
+  "name": "specprism",
+  "version": "1.4.0",
+  "description": "SpecPrism AI Product & QA Co-Architect — Socratic spec triage, vertical story slicing, EARS acceptance criteria, and REQ-to-TC test traceability.",
+  "author": "orphik",
+  "license": "MIT",
+  "homepage": "https://spec-prism.app",
+  "repository": "https://github.com/orphik/specprism",
+  "skills": ["./skills/specprism"],
+  "mcpConfig": "./mcp_config.json"
+}

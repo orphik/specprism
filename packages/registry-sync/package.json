@@ -1,0 +1,47 @@
+{
+  "name": "@specprism/registry-sync",
+  "version": "1.5.1",
+  "description": "SpecPrism Evergreen Registry Sync — Live OpenRouter AI catalog sanitizer and Official MCP Registry story recommender.",
+  "license": "MIT",
+  "homepage": "https://spec-prism.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orphik/specprism.git",
+    "directory": "packages/registry-sync"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@specprism/core": "workspace:*",
+    "@specprism/db": "workspace:*",
+    "drizzle-orm": "^0.45.2",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.4"
+  }
+}

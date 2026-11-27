@@ -1,0 +1,31 @@
+id: deepseek-reasoning
+displayName: DeepSeek R-Series Reasoning (Minimal System + Direct User Contract)
+version: "2026.11.1"
+lastVerifiedAt: "2026-11-26T00:00:00.000Z"
+modelMatchers:
+  - "deepseek/*"
+  - "deepseek-*"
+structuralFormat: markdown_headings
+reasoningStrategy: native_reasoning_no_manual_cot
+rules:
+  avoidPhrases:
+    - "think step by step"
+    - "let's think"
+    - "act as an expert"
+  systemFramingTemplate: |
+    Implement the specification below with strict Red-Green-Refactor test verification. Rely on native <think> deliberation without repeating reasoning in code output.
+  handoffSectionOrder:
+    - "## Scoped Vision & Non-Goals"
+    - "## Locked Assumptions"
+    - "## Vertical Stories"
+    - "## Acceptance Criteria (EARS)"
+    - "## Verification Matrix (REQ -> TC)"
+  toolUseGuidance: |
+    Keep system instructions minimal and place all constraints directly in the task body. Run all TC-* assertions before finishing.
+coachAnnotations:
+  - ruleKey: minimal_system_role
+    badgeLabel: Minimal System Preamble
+    explanation: DeepSeek R-series reasoning models perform best when heavy persona prompts are omitted and constraints live directly in the user contract.
+  - ruleKey: native_reasoning_no_manual_cot
+    badgeLabel: Native <think> Budget
+    explanation: Strips manual 'think step-by-step' prompts that degrade DeepSeek's native RL-trained reasoning trace.
