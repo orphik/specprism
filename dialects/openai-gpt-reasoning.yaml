@@ -1,0 +1,34 @@
+id: openai-gpt-reasoning
+displayName: OpenAI GPT & o-Series Reasoning (Markdown Developer Contract)
+version: "2026.11.1"
+lastVerifiedAt: "2026-11-26T00:00:00.000Z"
+modelMatchers:
+  - "openai/gpt-*"
+  - "openai/o*"
+  - "gpt-*"
+  - "o1*"
+  - "o3*"
+  - "o4*"
+structuralFormat: markdown_headings
+reasoningStrategy: native_reasoning_no_manual_cot
+rules:
+  avoidPhrases:
+    - "think step by step"
+    - "explain your reasoning first"
+  systemFramingTemplate: |
+    Developer Contract: Implement each vertical slice strictly to satisfy all EARS acceptance criteria and pass the mapped TC-* suites.
+  handoffSectionOrder:
+    - "## Scoped Vision & Non-Goals"
+    - "## Locked Assumptions"
+    - "## Vertical Stories"
+    - "## Acceptance Criteria (EARS)"
+    - "## Verification Matrix (REQ -> TC)"
+  toolUseGuidance: |
+    Prefer parallel tool calls for codebase exploration and run deterministic test commands before completion.
+coachAnnotations:
+  - ruleKey: markdown_headings
+    badgeLabel: Flat Markdown Hierarchy
+    explanation: OpenAI reasoning models adhere cleanly to flat Markdown developer contracts with explicit non-goal checklists.
+  - ruleKey: native_reasoning_no_manual_cot
+    badgeLabel: Zero Redundant CoT
+    explanation: Avoids manual Chain-of-Thought prompts that conflict with native hidden reasoning tokens.

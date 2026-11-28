@@ -1,0 +1,34 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.orphik/specprism",
+  "title": "SpecPrism — AI Product & QA Co-Architect",
+  "description": "Stateless Socratic spec triage, EARS acceptance criteria, and REQ-to-TC test traceability.",
+  "version": "1.6.0",
+  "websiteUrl": "https://spec-prism.app",
+  "repository": {
+    "url": "https://github.com/orphik/specprism",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "specprism",
+      "version": "1.6.0",
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "mcp"
+        }
+      ],
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://spec-prism.app/mcp"
+    }
+  ]
+}

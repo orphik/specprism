@@ -1,0 +1,54 @@
+{
+  "name": "@specprism/mcp-server",
+  "version": "1.6.0",
+  "mcpName": "io.github.orphik/specprism",
+  "description": "SpecPrism Stateless MCP 2026-07-28 Server — Multi Round-Trip Request (MRTR) Socratic elicitations, ext-skills, Streamable HTTP & stdio.",
+  "license": "MIT",
+  "homepage": "https://spec-prism.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orphik/specprism.git",
+    "directory": "packages/mcp-server"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "specprism",
+    "ears",
+    "specification",
+    "ai-agents"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@specprism/core": "workspace:*",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.4"
+  }
+}

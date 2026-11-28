@@ -1,0 +1,22 @@
+{
+  "name": "specprism-open-core",
+  "version": "1.6.0",
+  "private": true,
+  "license": "MIT",
+  "packageManager": "pnpm@10.34.9",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orphik/specprism.git"
+  },
+  "homepage": "https://spec-prism.app",
+  "scripts": {
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.4"
+  }
+}

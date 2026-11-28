@@ -1,0 +1,31 @@
+id: anthropic-claude
+displayName: Anthropic Claude Family (XML + Native Adaptive Thinking)
+version: "2026.11.1"
+lastVerifiedAt: "2026-11-26T00:00:00.000Z"
+modelMatchers:
+  - "anthropic/claude-*"
+  - "claude-*"
+structuralFormat: xml_tags
+reasoningStrategy: native_reasoning_no_manual_cot
+rules:
+  avoidPhrases:
+    - "think step by step"
+    - "take a deep breath"
+  systemFramingTemplate: |
+    You are implementing a verified SpecPrism vertical slice. Follow every EARS acceptance criterion and execute tests red-to-green.
+  handoffSectionOrder:
+    - "<scoped_vision>"
+    - "<locked_assumptions>"
+    - "<vertical_story>"
+    - "<acceptance_criteria_ears>"
+    - "<traceable_test_plan>"
+    - "<recommended_mcp_tools>"
+  toolUseGuidance: |
+    Batch independent file reads and searches in parallel turns. Run the linked TC-* verification suite immediately after edits.
+coachAnnotations:
+  - ruleKey: xml_tags
+    badgeLabel: Semantic XML Boundaries
+    explanation: Claude models parse nested specification contracts most reliably when assumptions, EARS rules, and test IDs are isolated in distinct XML tags.
+  - ruleKey: native_reasoning_no_manual_cot
+    badgeLabel: Native Adaptive Thinking
+    explanation: omits manual 'think step-by-step' filler so Claude's native reasoning budget focuses directly on REQ-* to TC-* invariants.

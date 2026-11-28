@@ -1,0 +1,31 @@
+id: xai-grok
+displayName: xAI Grok Family (Direct Constraint Contract + Parallel Tooling)
+version: "2026.11.2"
+lastVerifiedAt: "2026-11-26T20:00:00.000Z"
+modelMatchers:
+  - "x-ai/*"
+  - "grok-*"
+structuralFormat: markdown_headings
+reasoningStrategy: native_reasoning_no_manual_cot
+rules:
+  avoidPhrases:
+    - "think step by step"
+    - "take a deep breath"
+    - "as an AI language model"
+  systemFramingTemplate: |
+    Engineering Contract: Implement each vertical slice directly against the EARS acceptance criteria below. Verify every REQ-* invariant with its paired TC-* test before moving to the next slice.
+  handoffSectionOrder:
+    - "## Scoped Vision & Non-Goals"
+    - "## Locked Assumptions"
+    - "## Vertical Stories"
+    - "## Acceptance Criteria (EARS)"
+    - "## Verification Matrix (REQ -> TC)"
+  toolUseGuidance: |
+    Execute parallel repository searches and file reads upfront, keep edits surgical per vertical slice, and run deterministic test commands immediately after modifications.
+coachAnnotations:
+  - ruleKey: direct_constraint_contract
+    badgeLabel: Zero-Fluff Engineering Framing
+    explanation: Grok reasoning models follow concise, constraint-dense Markdown contracts without persona filler or manual chain-of-thought prompts.
+  - ruleKey: parallel_verification_loop
+    badgeLabel: Slice-by-Slice Verification
+    explanation: Anchors each vertical story directly to concrete TC-* file targets so Grok validates edge cases before advancing.

@@ -1,0 +1,55 @@
+{
+  "name": "specprism",
+  "version": "1.6.0",
+  "mcpName": "io.github.orphik/specprism",
+  "license": "MIT",
+  "description": "SpecPrism CLI — Free Open-Core AI Product & QA Co-Architect (Socratic Triage, EARS, REQ-to-TC Traceability & Stateless MCP 2026-07-28)",
+  "homepage": "https://spec-prism.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orphik/specprism.git",
+    "directory": "packages/cli"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "specprism",
+    "cli",
+    "mcp",
+    "ears",
+    "gherkin",
+    "playwright",
+    "vitest",
+    "spec-driven-development",
+    "ai-coding-agent"
+  ],
+  "type": "module",
+  "bin": {
+    "specprism": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@specprism/core": "workspace:*",
+    "@specprism/db": "workspace:*",
+    "@specprism/mcp-server": "workspace:*",
+    "@specprism/registry-sync": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.4"
+  }
+}
